@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-darker text-light overflow-x-hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+.tech-gradient {
+  @apply bg-gradient-to-r from-tech-purple via-tech-blue to-tech-green;
+}
+
+.tech-text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-tech-purple via-tech-blue to-tech-green;
+}
+
+.card-gradient {
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.1), rgba(139, 92, 246, 0.1));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-card {
+  @apply rounded-xl card-gradient shadow-lg;
+}
+
+.nav-link {
+  @apply relative px-3 py-2 text-light hover:text-tech-purple transition-colors duration-300;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute left-0 bottom-0 w-0 h-0.5 bg-tech-purple transition-all duration-300;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+.tech-icon {
+  @apply flex items-center justify-center w-12 h-12 rounded-lg bg-dark text-tech-purple;
+}
+
+.tech-icon-sm {
+  @apply flex items-center justify-center w-8 h-8 rounded-lg bg-dark text-tech-purple;
+}
+
+.project-card {
+  @apply glass-card p-6 transition-all duration-500 hover:shadow-[0_0_15px_rgba(139,92,246,0.5)] hover:-translate-y-2;
+}
+
+.experience-card {
+  @apply glass-card p-6 relative overflow-hidden;
+}
+
+.experience-card::before {
+  content: '';
+  @apply absolute top-0 left-0 w-1 h-full bg-tech-purple;
+}
+
+.keyboard-key {
+  @apply inline-flex items-center justify-center min-w-[2rem] h-8 px-2 rounded bg-dark border border-gray-700 text-sm font-mono shadow-md;
+}
+
+.cursor-glow {
+  filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.8));
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-tech-purple rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-tech-blue;
+}
+
+/* Animated background grid */
+.grid-background {
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
